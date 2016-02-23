@@ -8,17 +8,15 @@
 ## Log all output to files
 # LOGFILE=$HOME/devstack.log
 # SCREEN_LOGDIR=$HOME/logs
-
-# Neutron settings
-Q_USE_SECGROUP=True
-ENABLE_TENANT_VLANS=True
-TENANT_VLAN_RANGE=
-PHYSICAL_NETWORK=public
-OVS_PHYSICAL_BRIDGE=br-ex
-
-enable_service rabbit
+## Neutron settings
+# Q_USE_SECGROUP=True
+# ENABLE_TENANT_VLANS=True
+# TENANT_VLAN_RANGE=
+# PHYSICAL_NETWORK=public
+# OVS_PHYSICAL_BRIDGE=br-ex
 
 # Enable Neutron which is required by Magnum and disable nova-network.
+# Note: Default template uses LBaaS.
 disable_service n-net
 enable_service q-svc
 enable_service q-agt

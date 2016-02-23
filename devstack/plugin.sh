@@ -9,6 +9,10 @@ source $DEST/magnum/devstack/lib/magnum
 (set -o posix; set)
 
 if is_service_enabled m-api m-cond; then
+    if ! is_service_enabled neutron; then
+        die $LINENO "Magnum requires Neutron enabled"
+    fi
+
     if [[ "$1" == "stack" && "$2" == "install" ]]; then
         echo_summary "Installing magnum"
         install_magnum
